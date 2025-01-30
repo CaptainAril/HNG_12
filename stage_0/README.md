@@ -35,7 +35,7 @@ The API is designed to handle GET requests and is deployed to a publicly accessi
 ## API Specification
 ### Endpoint
 - **Method**: `GET`
-- **URL**: `https://<your-deployed-url>/api/info`
+- **URL**: `https://eblaze.pythonanywhere.com/api/basic-info/`
 
 ### Response Format (200 OK)
 ```json
@@ -48,7 +48,7 @@ The API is designed to handle GET requests and is deployed to a publicly accessi
 
 ### Example Usage
 ```bash
-curl -X GET https://<your-deployed-url>/api/info
+curl -X GET https://eblaze.pythonanywhere.com/api/basic-info/
 ```
 
 ### Response Example
