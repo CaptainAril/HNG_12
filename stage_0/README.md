@@ -81,7 +81,13 @@ curl -X GET https://<your-deployed-url>/api/info
 
 4. Run the Flask application:
    ```bash
-   python3 -m src.server
+   ./run.sh # for linux or macOS
+   ```
+
+   or 
+
+   ```bash
+    python3 -m src.server # for windows
    ```
 5. The API will be accessible at `http://127.0.0.1:8000/api/basic-info`.
 
