@@ -13,9 +13,10 @@ class ServerResource(Resource):
 
     @staticmethod
     def number():
-        number = request.args.get('number', None)
-        if number:
-            try:
+        number = request.args.get('number', '')
+        
+        try:
+            if number:
                 number = int(number)
                 number = abs(number)
 
@@ -32,6 +33,7 @@ class ServerResource(Resource):
                     }
                 ), 200
             
-            except ValueError:
-                return jsonify({"number": number, 'error': True}), 400
-        return jsonify({"number": "no number provided", 'error': True}), 400
+        except Exception as e:
+            print(e)
+            return jsonify({"number": number, 'error': True}), 400
+        return jsonify({"number": number, 'error': True}), 400
