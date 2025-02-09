@@ -33,5 +33,5 @@ class ServerResource(Resource):
                 ), 200
             
             except ValueError:
-                return jsonify({"number": "invalid number", 'error': True}), 400
+                return jsonify({"number": number, 'error': True}), 400
         return jsonify({"number": "no number provided", 'error': True}), 400
