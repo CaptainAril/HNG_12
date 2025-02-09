@@ -1,4 +1,7 @@
-from flask import jsonify, request
+import json
+from collections import OrderedDict
+
+from flask import Response, jsonify, request
 from flask_restful import Resource
 
 from src.utilities.number_manager import NumManager
@@ -22,16 +25,20 @@ class ServerResource(Resource):
 
                 num = NumManager(number)
 
-                return jsonify(
-                    {
-                        "number": number,
-                        "is_prime": num.is_prime,
-                        "is_perfect": num.is_perfect,
-                        "properties": num.properties,
-                        "digit_sum": num.digit_sum,
-                        "fun_fact": num.fun_fact
-                    }
-                ), 200
+                response_data = OrderedDict(
+                    [
+                        ("number", number),
+                        ("is_prime", num.is_prime),
+                        ("is_perfect", num.is_perfect),
+                        ("properties", num.properties),
+                        ("digit_sum", num.digit_sum),
+                        ("fun_fact", num.fun_fact)
+                    ]
+                )
+
+                # return jsonify(response_data), 200
+                response_json = json.dumps(response_data, indent=4)
+                return Response(response_json, mimetype='application/json', status=200)
             
         except Exception as e:
             print(e)

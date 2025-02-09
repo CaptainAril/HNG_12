@@ -47,6 +47,4 @@ class NumManager:
     def fun_fact(self) -> str:
         url = f"http://numbersapi.com/{self.num}/math"
         r = requests.get(url)
-        if r.status_code == 200:
-            return r.text
-        return "Such a boring number"
+        return r.text if r.status_code == 200 else "Such a boring number"
