@@ -2,8 +2,8 @@ import requests
 
 
 class NumManager:
-    def __init__(self, num):
-        self.num = num
+    def __init__(self, num: int):
+        self.num = abs(num)
 
     def _odd_or_even(self):
         if self.num % 2 == 0:

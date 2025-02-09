@@ -21,7 +21,6 @@ class ServerResource(Resource):
         try:
             if number:
                 number = int(number)
-                number = abs(number)
 
                 num = NumManager(number)
 
