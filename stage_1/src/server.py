@@ -29,7 +29,7 @@ cors = CORS(
 for blueprint in vars(routes).values():
     if isinstance(blueprint, Blueprint):
         server.register_blueprint(
-            blueprint, url_prefix=f"/api/{config.app_path}"
+            blueprint, url_prefix=f"/api{config.app_path}"
             )
         
 if __name__ == "__main__":
